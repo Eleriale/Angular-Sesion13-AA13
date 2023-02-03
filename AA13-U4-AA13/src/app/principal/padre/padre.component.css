@@ -1,0 +1,21 @@
+.sectionGeneral{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex: wrap;
+}
+
+.sectionForm{
+    border: 1px solid;
+    border-color: rgb(0, 153, 255);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.form-group{
+    padding-bottom: 1rem;
+}
+
+h1{
+    color:royalblue;
+}

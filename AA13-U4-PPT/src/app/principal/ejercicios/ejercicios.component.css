@@ -1,0 +1,15 @@
+.resultado{
+    font-weight: bolder;
+    color: rgb(45, 45, 249);
+}
+
+.txtResultado{
+    font-weight: bolder;
+    color: rgb(36, 179, 0);
+}
+
+.sectionForm{
+    border: 1px solid;
+    border-color: rgb(0, 118, 202);
+    padding: 1rem;
+}

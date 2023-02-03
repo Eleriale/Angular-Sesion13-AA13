@@ -1,0 +1,82 @@
+<section class="sectionGeneral">
+    <section class="sectionForm">
+        <form [formGroup]="registroForm" (ngSubmit)="Enviar()">
+            <h1>Registro de Datos</h1>
+
+            <section class="form-group">
+                <label for="nombres">Nombre: </label>
+                <input type="text" class="form-control" formControlName="nombres" required pattern="[a-zA-Z]+" maxlength="{a-z}">
+                <section *ngIf="nombres?.invalid && (nombres?.dirty || nombres?.touched)">
+                    <section *ngIf="nombres?.errors?.['required']" class="alert alert-danger">
+                        <p>El Nombre es obligatorio</p>
+                    </section>
+                    <section *ngIf="nombres?.errors?.['pattern']" class="alert alert-warning alertaInput">
+                        <p>El nombre debe ser solo letras</p>
+                    </section>
+                </section>
+            </section>
+
+            <section class="form-group">
+                <label for="apellidos">Apellido: </label>
+                <input type="text" class="form-control" formControlName="apellidos" required pattern="[a-zA-Z]+" maxlength="{a-z}">
+                <section *ngIf="apellidos?.invalid && (apellidos?.dirty || apellidos?.touched)">
+                    <section *ngIf="apellidos?.errors?.['required']" class="alert alert-danger">
+                        <p>El Apellido es obligatorio</p>
+                    </section>
+                    <section *ngIf="apellidos?.errors?.['pattern']" class="alert alert-warning alertaInput">
+                        <p>El Apellido debe ser solo letras</p>
+                    </section>
+                </section>
+            </section>
+
+            <section class="form-group">
+                <label for="telefono">Telefono: </label>
+                <input type="text" class="form-control" formControlName="telefono" required pattern="[0-9]{9}" maxlength="9">
+                <section *ngIf="telefono?.invalid && (telefono?.dirty || telefono?.touched)">
+                    <section *ngIf="telefono?.errors?.['required']" class="alert alert-danger">
+                        <p>El Telefono es obligatorio</p>
+                    </section>
+                    <section *ngIf="telefono?.errors?.['pattern']" class="alert alert-warning alertaInput">
+                        <p>El Telefono debe ser solo numero de 9 digitos</p>
+                    </section>
+                </section>
+            </section>
+
+            <section class="form-group">
+                <label for="direccion">Direccion: </label>
+                <input type="text" class="form-control" formControlName="direccion" required pattern="[a-zA-Z0-9]*$">
+                <section *ngIf="direccion?.invalid && (direccion?.dirty || direccion?.touched)">
+                    <section *ngIf="direccion?.errors?.['required']" class="alert alert-danger">
+                        <p>La Direccion es obligatoria</p>
+                    </section>
+                    <section *ngIf="direccion?.errors?.['pattern']" class="alert alert-warning alertaInput">
+                        <p>La Direccion puede contener letras y numeros</p>
+                    </section>
+                </section>
+            </section>
+
+            <section class="form-group">
+                <label for="estadoCivil">Estado Civil: </label>
+                <select class="col-3 form-select" formControlName="estadoCivil" name="estadoCivil" id="estadoCivil" required value="selected">
+                    <option value="" selected>Selecciona tu estado civil</option>
+                    <option value="soltera">Soltera</option>
+                    <option value="casada">Casada</option>
+                    <option value="divorciada">Divorciada</option>
+                    <option value="viuda">Viuda</option>
+                </select>
+                <section *ngIf="estadoCivil?.invalid && (estadoCivil?.dirty || estadoCivil?.touched)" class="">
+                    <section *ngIf="estadoCivil?.errors?.['required']" class="alert alert-danger alertaInput">
+                        <p>Debe seleccionar su estado civil</p>
+                    </section>
+                </section> 
+            </section>
+
+            <section>
+                <button type="submit" class="btn btn-success" [disabled]="!botonDeshabilitado" (click)="mostrar=true">Enviar</button>
+            </section>
+            
+        </form>
+            <app-hijo *ngIf="mostrar" [mensaje_padre]="datos_padre"></app-hijo>    
+    </section>
+    
+</section>
